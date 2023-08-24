@@ -1,5 +1,10 @@
 import React from "react";
 
-function Introduction() {}
+function Introduction() {
+  return (
+    <>
+    </>
+  );
+}
 
 export default Introduction;
