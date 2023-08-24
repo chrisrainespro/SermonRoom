@@ -1,5 +1,5 @@
-function Makeup() {
-    return(<></>);
-}
+import React from "react";
 
-export default Makeup;
+function MakeUp() {}
+
+export default MakeUp;
