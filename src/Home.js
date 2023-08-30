@@ -16,7 +16,7 @@ function Home() {
             <Link to="/current" className="nav-link">
               Current65 Day
             </Link>
-            <Link to="/makeup" className="nav-link">
+            <Link to="/65day" className="nav-link">
               Makeup
             </Link>
             <Link to="/extensions" className="nav-link">
