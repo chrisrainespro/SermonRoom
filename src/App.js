@@ -1,16 +1,17 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
-import Introduction from "./Introduction";
+import VideoList from "./VideoList";
+import Video from "./Video";
 
 
 function App() {
   return (
     <BrowserRouter>
     <Routes>
-       <Route path='/' element={<Home/>}>
-        <Route index element={<Introduction/>}  />
-
+       <Route path='/' element={<Home/>} >
+        <Route index element={<p>Welcome</p>}  />
+        <Route path=":videoPath" element={<VideoList />} />
       </Route>
     </Routes>
     </BrowserRouter>

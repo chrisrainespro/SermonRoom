@@ -1,33 +1,45 @@
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link, Outlet } from "react-router-dom";
-import { Container } from "react-bootstrap";
+import { Container, ListGroupItem } from "react-bootstrap";
+import { useContext, useEffect, useState } from "react";
+import { VideoContext } from "./VideoContext";
+
 
 function Home() {
+
+  let { getCatagories } = useContext(VideoContext)
+  let [catagories, setCatagories] = useState([])
+  
+  useEffect(() => {
+    async function fetch() {
+      await getCatagories()
+      .then((catagories) => setCatagories(catagories))
+    }
+    fetch()
+  },[getCatagories]);
+
+  function buildNavBar() {
+    if (catagories === null) return
+    return catagories.map((catagory) => {
+      return (
+        <Link key={catagory.id} to={catagory.path} className="nav-link">
+        {catagory.title}
+      </Link>  
+      )
+    })
+}
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
           <Navbar.Brand>BCOMSermon</Navbar.Brand>
           <Nav className="me-auto">
-            <Link to="/" className="nav-link">
-              Introduction
-            </Link>
-            <Link to="/current" className="nav-link">
-              Current65 Day
-            </Link>
-            <Link to="/makeup" className="nav-link">
-              Makeup
-            </Link>
-            <Link to="/extensions" className="nav-link">
-              Extensions
-            </Link>
-            <Link to="/counseling" className="nav-link">
-              Counseling
-            </Link>
-            <Link to="/pastor" className="nav-link">
-              Pastor Ritchie
-            </Link>
+            <VideoContext.Consumer>
+              {() => {
+                return buildNavBar();
+              }}
+            </VideoContext.Consumer>
           </Nav>
         </Container>
       </Navbar>
