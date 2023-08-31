@@ -38,19 +38,23 @@
     "Catagories" : [
       {
         "id" : 0,
-        "title" : "Intro"
+        "title" : "Intro",
+        "containsSeries" : false
       },
       {
         "id" : 1,
-        "title" : "65 Day Videos"
+        "title" : "65 Day Videos",
+        "containsSeries" : false
       },
       {
         "id" : 2,
-        "title" : "Extensions"
+        "title" : "Extensions",
+        "containsSeries" : true
       },
       {
         "id" : 3,
-        "title" : "Counseling"
+        "title" : "Counseling",
+        "containsSeries" : true
       }
      
      
