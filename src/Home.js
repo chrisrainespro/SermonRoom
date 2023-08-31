@@ -22,8 +22,9 @@ function Home() {
   function buildNavBar() {
     if (catagories === null) return
     return catagories.map((catagory) => {
+      let url = "list/" + catagory.id;
       return (
-        <Link key={catagory.id} to={catagory.path} className="nav-link">
+        <Link key={catagory.id} to={url} className="nav-link">
         {catagory.title}
       </Link>  
       )

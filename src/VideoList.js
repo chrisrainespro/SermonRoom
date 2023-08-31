@@ -13,20 +13,20 @@ export default function VideoList(props) {
 
     useEffect(() => {
         async function fetch() {
-            await getVideoList(params.videoPath)
+            await getVideoList(params.catagoryId)
                 .then((videos) => setVideos(videos))
         }
         fetch()
-    }, [params.videoPath, getVideoList]);
+    },[videos]);
 
     function buildVideoList() {
         if (videos === null) return
             return videos.map((video) => {
-            if (video.title === undefined) {
+            if (video.series === null) {
                 return (
-                    <ListGroup.Item key={video.password} >
+                    <ListGroup.Item key={video.id} >
                     
-                    <Link to={video.path} className="nav-link"><li>{video.series}</li></Link> 
+                    <Link to={video.path} className="nav-link"><li>{video.title}</li></Link> 
                     
                 </ListGroup.Item>
                 )
@@ -34,8 +34,8 @@ export default function VideoList(props) {
             }
             else {
                 return (
-                <ListGroup.Item key={video.password} >
-                <Link to={video.path} className="nav-link"><li>{video.title}</li></Link> 
+                <ListGroup.Item key={video.id} >
+                <Link to={video.path} className="nav-link"><li>{video.series}</li></Link> 
                 </ListGroup.Item>
                 )
         }
