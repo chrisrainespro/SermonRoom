@@ -12,32 +12,48 @@ export default function VideoList(props) {
     let [ videos, setVideos ] = useState([])
 
     useEffect(() => {
-        console.log("useEffect Called")
         async function fetch() {
-            console.log("fetch was called")
             await getVideoList(params.videoPath)
                 .then((videos) => setVideos(videos))
         }
         fetch()
     }, [params.videoPath, getVideoList]);
 
-    function buildVideoList(videoList) {
+    function buildVideoList() {
         if (videos === null) return
-            return videos.map((video) =>
-        <ListGroup.Item key={video.password} >
-            <li>{video.title}</li>
-        </ListGroup.Item>
-        )
+            return videos.map((video) => {
+            if (video.title === undefined) {
+                return (
+                    <ListGroup.Item key={video.password} >
+                    
+                    <Link to={video.path} className="nav-link"><li>{video.series}</li></Link> 
+                    
+                </ListGroup.Item>
+                )
+           
+            }
+            else {
+                return (
+                <ListGroup.Item key={video.password} >
+                <Link to={video.path} className="nav-link"><li>{video.title}</li></Link> 
+                </ListGroup.Item>
+                )
+        }
+        
+    })
     }
 
     return (
         <>
         <h1>Videos</h1>
+        <ol type="1">
         <VideoContext.Consumer>
+            
             {({videos}) => (
                 buildVideoList(videos)
             )}
         </VideoContext.Consumer>
+        </ol>
         </>
     )
 }
