@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
     <Routes>
        <Route path='/' element={<Home/>} >
-        <Route index element={<p>Welcome</p>}  />
+        <Route index element={<p>Please select a category from the navigation menu</p>}  />
         <Route path="list/:catagoryId" element={<VideoList />} />
       </Route>
     </Routes>

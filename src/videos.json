@@ -2,15 +2,15 @@
     "Videos" : [
       {
         "id" : 0,
-        "catagory" : 0,
+        "category" : 0,
         "series" : null,
-        "title" : "Test 65 Day Video Title",
+        "title" : "Test 65 Intro Video Title",
         "path" : "/public/videos/65day/test.mp4",
         "password" : "0000"
       },
       {
         "id" : 1,
-        "catagory" : 1,
+        "category" : 1,
         "series" : 1,
         "title" : "Test 2nd Day Video Number 1",
         "path" : "/public/videos/2nd30/test.mp4",
@@ -18,7 +18,7 @@
       },
       {
         "id" : 2,
-        "catagory" : 2,
+        "category" : 2,
         "series" : 2,
         "title" : "Test Counseling Video Title",
         "path" : "/public/videos/counseling/test.mp4",
@@ -26,16 +26,16 @@
       },
       {
         "id" : 3,
-        "catagory" : 3,
-        "series" : null,
-        "title" : "Test 65 Day Video Title",
+        "category" : 3,
+        "series" : 3,
+        "title" : "Test Counseling Video Title",
         "path" : "/public/videos/test.mp4",
         "password" : "0000"
       }
  
     ],
 
-    "Catagories" : [
+    "Categories" : [
       {
         "id" : 0,
         "title" : "Intro",

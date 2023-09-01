@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react"
+import React, { createContext, useState, useEffect } from "react"
 import axios from "axios"
 
 export const VideoContext = createContext()
@@ -7,37 +7,56 @@ export const VideoProvider = (props) => {
 
 const apiUrl = "http://localhost:3001/";
 
-let [videos, setVideos] = useState([])
+const [videos, setVideos] = useState([])
 
-function getVideoList(catagoryId) {
-    if (catagoryId) {
-        let responseData = axios.get(apiUrl+"/Videos").then(response =>
-        new Promise((resolve) => resolve(response.data)))
-        setVideos(responseData)
-        let filteredVideoList = videos.filter((value) => {
-            return value.catagoryId === catagoryId
-        })
-        console.log(filteredVideoList)
-        return filteredVideoList
+const [series, setSeries] = useState([])
+
+let [currentCategory, setCurrentCategory] = useState()
+
+useEffect(() => {
+    async function updateSeries() {
+        await axios.get(apiUrl+"Series").then(response => setSeries(response.data))
     }
-   else {
-    return axios.get(apiUrl+"intro").then(response =>
-        new Promise((resolve) => resolve(response.data))
-   )}       
-}
+    updateSeries()
+},[]);
 
-function getCatagories() {
-    console.log("getCatagories has been called");
-    return axios.get(apiUrl+"Catagories").then(response =>
+function getVideoList(categoryId) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const response = await axios.get(apiUrl + "Videos");
+            let data = response.data
+            const filteredVideos = data.filter((value) => value.category === categoryId);
+            setVideos(filteredVideos);
+            resolve(filteredVideos);
+        } catch (error) {
+            console.error("Error fetching videos:", error);
+            reject(error);
+        }
+    });
+}
+   
+
+function getCategories() {
+    return axios.get(apiUrl+"Categories").then(response =>
       new Promise((resolve) => resolve(response.data))  
     )}
+
+function getCategoryById(categoryId) {
+    console.log(categoryId)
+    return axios.get(apiUrl+"Categories/"+categoryId)
+}
 
 
 return (
     <VideoContext.Provider
         value={{
             getVideoList,
-            getCatagories
+            getCategories,
+            getCategoryById,
+            videos,
+            setVideos,
+            series,
+            
         }}
         >
         {props.children}    

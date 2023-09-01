@@ -8,16 +8,16 @@ import { VideoContext } from "./VideoContext";
 
 function Home() {
 
-  let { getCatagories } = useContext(VideoContext)
+  let { getCategories } = useContext(VideoContext)
   let [catagories, setCatagories] = useState([])
   
   useEffect(() => {
     async function fetch() {
-      await getCatagories()
+      await getCategories()
       .then((catagories) => setCatagories(catagories))
     }
     fetch()
-  },[getCatagories]);
+  },[getCategories]);
 
   function buildNavBar() {
     if (catagories === null) return
