@@ -3,31 +3,42 @@ import Nav from "react-bootstrap/Nav";
 import { Link, Outlet } from "react-router-dom";
 import { Container, ListGroupItem } from "react-bootstrap";
 import { useContext, useEffect, useState } from "react";
-import { VideoContext } from "./VideoContext";
+import { CategoryContext } from "./Contexts/CategoryContext";
 
 
 function Home() {
 
-  let { getCategories } = useContext(VideoContext)
-  let [catagories, setCatagories] = useState([])
+  let { getCategories, categories, setCategories } = useContext(CategoryContext)
   
   useEffect(() => {
     async function fetch() {
       await getCategories()
-      .then((catagories) => setCatagories(catagories))
+      .then((categories) => setCategories(categories))
     }
     fetch()
-  },[getCategories]);
+  },[]);
 
   function buildNavBar() {
-    if (catagories === null) return
-    return catagories.map((catagory) => {
-      let url = "list/" + catagory.id;
+    
+    if (categories === null) return
+    return categories.map((category) => {
+     if (category.containsSeries) {
+       let url = "series/list/"+category.id;
+        return (
+          <Link key={category.id} to={url} className="nav-link">
+          {category.title}
+        </Link>
+        )  
+     }
+     else {
+      let url = "videos/list/" + category.id;
       return (
-        <Link key={catagory.id} to={url} className="nav-link">
-        {catagory.title}
+        <Link key={category.id} to={url} className="nav-link">
+        {category.title}
       </Link>  
       )
+     }
+      
     })
 }
   return (
@@ -36,11 +47,11 @@ function Home() {
         <Container>
           <Navbar.Brand>BCOMSermon</Navbar.Brand>
           <Nav className="me-auto">
-            <VideoContext.Consumer>
+            <CategoryContext.Consumer>
               {() => {
                 return buildNavBar();
               }}
-            </VideoContext.Consumer>
+            </CategoryContext.Consumer>
           </Nav>
         </Container>
       </Navbar>

@@ -1,41 +1,201 @@
 {
-    "Videos" : [
+    "videos" : [
       {
         "id" : 0,
         "category" : 0,
         "series" : null,
-        "title" : "Test 65 Intro Video Title",
+        "title" : "Test Intro Video Title 1",
         "path" : "/public/videos/65day/test.mp4",
         "password" : "0000"
       },
       {
         "id" : 1,
-        "category" : 1,
-        "series" : 1,
-        "title" : "Test 2nd Day Video Number 1",
+        "category" : 0,
+        "series" : null,
+        "title" : "Test Intro Video Title 2",
         "path" : "/public/videos/2nd30/test.mp4",
         "password" : "0000"
       },
       {
         "id" : 2,
-        "category" : 2,
-        "series" : 2,
-        "title" : "Test Counseling Video Title",
+        "category" : 0,
+        "series" : null,
+        "title" : "Test Intro Video Title 3",
         "path" : "/public/videos/counseling/test.mp4",
         "password" : "0000"
       },
       {
         "id" : 3,
+        "category" : 0,
+        "series" : null,
+        "title" : "Test Intro Video Title 4",
+        "path" : "/public/videos/test.mp4",
+        "password" : "0000"
+      },   
+      {
+        "id" : 4,
+        "category" : 1,
+        "series" : null,
+        "title" : "Test 65 day Video Title 1",
+        "path" : "/public/videos/65day/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 5,
+        "category" : 1,
+        "series" : null,
+        "title" : "Test 65 day Video Title 2",
+        "path" : "/public/videos/2nd30/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 6,
+        "category" : 1,
+        "series" : null,
+        "title" : "Test 65 day Video Title 3",
+        "path" : "/public/videos/counseling/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 7,
+        "category" : 1,
+        "series" : null,
+        "title" : "Test 65 day Video Title 4",
+        "path" : "/public/videos/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 8,
+        "category" : 2,
+        "series" : 0,
+        "title" : "Test 30 day Video Title 1",
+        "path" : "/public/videos/65day/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 9,
+        "category" : 2,
+        "series" : 0,
+        "title" : "Test 30 day Video Title 2",
+        "path" : "/public/videos/2nd30/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 10,
+        "category" : 2,
+        "series" : 1,
+        "title" : "Test 30 day Video Title 3",
+        "path" : "/public/videos/counseling/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 11,
+        "category" : 2,
+        "series" : 1,
+        "title" : "Test 30 day Video Title 4",
+        "path" : "/public/videos/test.mp4",
+        "password" : "0000"
+      },   
+      {
+        "id" : 12,
+        "category" : 2,
+        "series" : 2,
+        "title" : "Test 30 day Video Title 1",
+        "path" : "/public/videos/65day/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 13,
+        "category" : 2,
+        "series" : 2,
+        "title" : "Test 30 day Video Title 2",
+        "path" : "/public/videos/2nd30/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 14,
+        "category" : 2,
+        "series" : 0,
+        "title" : "Test 30 day Video Title 3",
+        "path" : "/public/videos/counseling/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 15,
+        "category" : 2,
+        "series" : 2,
+        "title" : "Test 30 day Video Title 4",
+        "path" : "/public/videos/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 16,
         "category" : 3,
         "series" : 3,
-        "title" : "Test Counseling Video Title",
+        "title" : "Test Counseling Video Title 1",
+        "path" : "/public/videos/65day/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 17,
+        "category" : 3,
+        "series" : 3,
+        "title" : "Test Counseling Video Title 2",
+        "path" : "/public/videos/2nd30/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 18,
+        "category" : 3,
+        "series" : 3,
+        "title" : "Test Counseling Video Title 3",
+        "path" : "/public/videos/counseling/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 19,
+        "category" : 3,
+        "series" : 3,
+        "title" : "Test Counseling Video Title 4",
+        "path" : "/public/videos/test.mp4",
+        "password" : "0000"
+      },   
+      {
+        "id" : 20,
+        "category" : 3,
+        "series" : 4,
+        "title" : "Test Counseling Video Title 1",
+        "path" : "/public/videos/65day/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 21,
+        "category" : 3,
+        "series" : 4,
+        "title" : "Test Counseling Video Title 2",
+        "path" : "/public/videos/2nd30/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 22,
+        "category" : 3,
+        "series" : 4,
+        "title" : "Test Counseling Video Title 3",
+        "path" : "/public/videos/counseling/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 23,
+        "category" : 3,
+        "series" : 4,
+        "title" : "Test Counseling Video Title 4",
         "path" : "/public/videos/test.mp4",
         "password" : "0000"
       }
  
     ],
 
-    "Categories" : [
+    "categories" : [
       {
         "id" : 0,
         "title" : "Intro",
@@ -59,22 +219,31 @@
      
      
     ],
-    "Series" : [
+    "series" : [
       {
         "id" : 0,
-        "title" : "1st 30 Day Program"
+        "title" : "1st 30 Day Program",
+        "categoryId" : 2
       },
       {
         "id" : 1,
-        "title" : "2nd 30 Day Program"
+        "title" : "2nd 30 Day Program",
+        "categoryId" : 2
       },
       {
         "id" : 2,
-        "title" : "3rd 30 Day Program"
+        "title" : "3rd 30 Day Program",
+        "categoryId" : 2
       },
       {
         "id" : 3,
-        "title" : "God's Love"
+        "title" : "Counseling Series 1",
+        "categoryId" : 3
+      },
+      {
+        "id" : 4,
+        "title" : "Counseling Series 2",
+        "categoryId" : 3
       }
     ]
 }
