@@ -1,230 +1,249 @@
 {
-    "65day" : [
-        {
-            "path": "videos/1.mp4",
-            "title": "The Final Judgement - Charles Stanley",
-            "password": "1432"
-          },
-          {
-            "path": "videos/2.mp4",
-            "title": "The Grindstone of Guilt - Charles Stanley",
-            "password": "2341"
-          },
-          {
-            "path": "videos/3.mp4",
-            "title": "The Reproach of Rejection - Unknown",
-            "password": "3124"
-          },
-          {
-            "path": "videos/4.mp4",
-            "title": "Portrait of a Godly Man  - Tony Evans",
-            "password": "4213"
-          },
-          {
-            "path": "videos/5.mp4",
-            "title": "A Foundation for the Family - Adrian Rogers",
-            "password": "5432"
-          },
-          {
-            "path": "videos/6.mp4",
-            "title": "Thou Shalt Not Bellyache - David Ring",
-            "password": "6231"
-          },
-          {
-            "path": "videos/7.mp4",
-            "title": "Respecting your Women - Tony Evans",
-            "password": "7143"
-          },
-          {
-            "path": "videos/8.mp4",
-            "title": "Singleness  Charles - Stanley",
-            "password": "8675"
-          },
-          {
-            "path": "videos/9.mp4",
-            "title": "Pineapple Story Part 1 - Otto Koning",
-            "password": "9876"
-          },
-          {
-            "path": "videos/10.mp4",
-            "title": "Pineapple Story Part 2 - Otto Koning",
-            "password": "1067"
-          },
-          {
-            "path": "videos/11.mp4",
-            "title": "Cathy Loss Testimony - Cathy Loss",
-            "password": "1189"
-          },
-          {
-            "path": "videos/12.mp4",
-            "title": "Dr. Law and Dr. Grace - Lester Roloff",
-            "password": "1210"
-          },
-          {
-            "path": "videos/13.mp4",
-            "title": "Milk of the Word - Safriet",
-            "password": "1308"
-          },
-          {
-            "path": "videos/14.mp4",
-            "title": "Sinning After Salvation - Charles Stanley",
-            "password": "1490"
-          },
-          {
-            "path": "videos/15.mp4",
-            "title": "Standing Alone When Opposed - Chuck Swindoll",
-            "password": "1506"
-          },
-          {
-            "path": "videos/16.mp4",
-            "title": "Standing Alone When Tested  - Chuck Swindoll",
-            "password": "1651"
-          },
-          {
-            "path": "videos/17.mp4",
-            "title": "Standing Alone When Discouraged - Chuck Swindoll",
-            "password": "1765"
-          },
-          {
-            "path": "videos/18.mp4",
-            "title": "Standing Alone When Tempted - Chuck Swindoll",
-            "password": "1876"
-          },
-          {
-            "path": "videos/19.mp4",
-            "title": "Standing Alone when Outnumbered - Chuck Swindoll",
-            "password": "1978"
-          },
-          {
-            "path": "videos/20.mp4",
-            "title": "Battle of the Mind  - Tony Evans",
-            "password": "2079"
-          },
-          {
-            "path": "videos/21.mp4",
-            "title": "Praise in Prayer Warfare - Unknown",
-            "password": "2102"
-          },
-          {
-            "path": "videos/22.mp4",
-            "title": "How to deal with strongholds - Charles Stanley",
-            "password": "2221"
-          },
-          {
-            "path": "videos/23.mp4",
-            "title": "Forgiveness - Junior Hill",
-            "password": "2312"
-          },
-          {
-            "path": "videos/24.mp4",
-            "title": "The Valley Experiences - Charles Stanley",
-            "password": "2431"
-          },
-          {
-            "path": "videos/25.mp4",
-            "title": "Pocket Full of Pennies - Dr. Rick Amato",
-            "password": "2543"
-          },
-          {
-            "path": "videos/26.mp4",
-            "title": "Filling God's Gaps -Charles Stanley",
-            "password": "2654"
-          },
-          {
-            "path": "videos/27.mp4",
-            "title": "Authority Over the Body - Adrian Rogers",
-            "password": "2765"
-          },
-          {
-            "path": "videos/28.mp4",
-            "title": "Authority Over the Mind - Adrian Rogers",
-            "password": "2876"
-          },
-          {
-            "path": "videos/29.mp4",
-            "title": "How to handle criticism and Praise - Charles Stanley",
-            "password": "2987"
-          },
-          {
-            "path": "videos/30.mp4",
-            "title": "He Brought Me - Bouie",
-            "password": "3098"
-          }
+    "videos" : [
+      {
+        "id" : 0,
+        "category" : 0,
+        "series" : null,
+        "title" : "Test Intro Video Title 1",
+        "path" : "/public/videos/65day/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 1,
+        "category" : 0,
+        "series" : null,
+        "title" : "Test Intro Video Title 2",
+        "path" : "/public/videos/2nd30/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 2,
+        "category" : 0,
+        "series" : null,
+        "title" : "Test Intro Video Title 3",
+        "path" : "/public/videos/counseling/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 3,
+        "category" : 0,
+        "series" : null,
+        "title" : "Test Intro Video Title 4",
+        "path" : "/public/videos/test.mp4",
+        "password" : "0000"
+      },   
+      {
+        "id" : 4,
+        "category" : 1,
+        "series" : null,
+        "title" : "Test 65 day Video Title 1",
+        "path" : "/public/videos/65day/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 5,
+        "category" : 1,
+        "series" : null,
+        "title" : "Test 65 day Video Title 2",
+        "path" : "/public/videos/2nd30/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 6,
+        "category" : 1,
+        "series" : null,
+        "title" : "Test 65 day Video Title 3",
+        "path" : "/public/videos/counseling/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 7,
+        "category" : 1,
+        "series" : null,
+        "title" : "Test 65 day Video Title 4",
+        "path" : "/public/videos/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 8,
+        "category" : 2,
+        "series" : 0,
+        "title" : "Test 30 day Video Title 1",
+        "path" : "/public/videos/65day/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 9,
+        "category" : 2,
+        "series" : 0,
+        "title" : "Test 30 day Video Title 2",
+        "path" : "/public/videos/2nd30/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 10,
+        "category" : 2,
+        "series" : 1,
+        "title" : "Test 30 day Video Title 3",
+        "path" : "/public/videos/counseling/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 11,
+        "category" : 2,
+        "series" : 1,
+        "title" : "Test 30 day Video Title 4",
+        "path" : "/public/videos/test.mp4",
+        "password" : "0000"
+      },   
+      {
+        "id" : 12,
+        "category" : 2,
+        "series" : 2,
+        "title" : "Test 30 day Video Title 1",
+        "path" : "/public/videos/65day/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 13,
+        "category" : 2,
+        "series" : 2,
+        "title" : "Test 30 day Video Title 2",
+        "path" : "/public/videos/2nd30/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 14,
+        "category" : 2,
+        "series" : 0,
+        "title" : "Test 30 day Video Title 3",
+        "path" : "/public/videos/counseling/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 15,
+        "category" : 2,
+        "series" : 2,
+        "title" : "Test 30 day Video Title 4",
+        "path" : "/public/videos/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 16,
+        "category" : 3,
+        "series" : 3,
+        "title" : "Test Counseling Video Title 1",
+        "path" : "/public/videos/65day/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 17,
+        "category" : 3,
+        "series" : 3,
+        "title" : "Test Counseling Video Title 2",
+        "path" : "/public/videos/2nd30/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 18,
+        "category" : 3,
+        "series" : 3,
+        "title" : "Test Counseling Video Title 3",
+        "path" : "/public/videos/counseling/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 19,
+        "category" : 3,
+        "series" : 3,
+        "title" : "Test Counseling Video Title 4",
+        "path" : "/public/videos/test.mp4",
+        "password" : "0000"
+      },   
+      {
+        "id" : 20,
+        "category" : 3,
+        "series" : 4,
+        "title" : "Test Counseling Video Title 1",
+        "path" : "/public/videos/65day/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 21,
+        "category" : 3,
+        "series" : 4,
+        "title" : "Test Counseling Video Title 2",
+        "path" : "/public/videos/2nd30/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 22,
+        "category" : 3,
+        "series" : 4,
+        "title" : "Test Counseling Video Title 3",
+        "path" : "/public/videos/counseling/test.mp4",
+        "password" : "0000"
+      },
+      {
+        "id" : 23,
+        "category" : 3,
+        "series" : 4,
+        "title" : "Test Counseling Video Title 4",
+        "path" : "/public/videos/test.mp4",
+        "password" : "0000"
+      }
+ 
     ],
 
-    "1st30" : [
-        {
-          "series": "1st 30 Day",
-          "title": "Chasing the Wind",
-          "path": "videos/30day/1/1.mp4",
-          "password": "1587"
-        },
-        {
-          "series": "1st 30 Day",
-          "title": "Drink and Be what?",
-          "path": "videos/30day/1/2.mp4",
-          "password": "2546"
-        },
-        {
-          "series": "1st 30 Day",
-          "title": "What Works?",
-          "path": "videos/30day/1/3.mp4",
-          "password": "3983"
-        },
-        {
-          "series": "1st 30 Day",
-          "title": "Spirit,Mind,Body",
-          "path": "videos/30day/1/4.mp4",
-          "password": "4165"
-        },
-        {
-          "series": "1st 30 Day",
-          "title": "The Truth about Sin",
-          "path": "videos/30day/1/5.mp4",
-          "password": "5186"
-        },
-        {
-          "series": "1st 30 Day",
-          "title": "God's Answer to Sin",
-          "path": "videos/30day/1/6.mp4",
-          "password": "6834"
-        },
-        {
-          "series": "1st 30 Day",
-          "title": "The Landmine of Pride",
-          "path": "videos/30day/1/7.mp4",
-          "password": "7324"
-        },
-        {
-          "series": "1st 30 Day",
-          "title": "Jesus Christ is Lord",
-          "path": "videos/30day/1/8.mp4",
-          "password": "8428"
-        },
-        {
-          "series": "1st 30 Day",
-          "title": "It Starts in the Mind",
-          "path": "videos/30day/1/9.mp4",
-          "password": "9391"
-        },
-        {
-          "series": "1st 30 Day",
-          "title": "Christ and Your Problems",
-          "path": "videos/30day/1/10.mp4",
-          "password": "1082"
-        },
-        {
-          "series": "1st 30 Day",
-          "title": "Christian in Full Armor",
-          "path": "videos/30day/1/11.mp4",
-          "password": "1199"
-        },
-        {
-          "series": "1st 30 Day",
-          "title": "If God be for Us",
-          "path": "videos/30day/1/12.mp4",
-          "password": "1231"
-        }
-      ]
-
+    "categories" : [
+      {
+        "id" : 0,
+        "title" : "Intro",
+        "containsSeries" : false
+      },
+      {
+        "id" : 1,
+        "title" : "65 Day Videos",
+        "containsSeries" : false
+      },
+      {
+        "id" : 2,
+        "title" : "Extensions",
+        "containsSeries" : true
+      },
+      {
+        "id" : 3,
+        "title" : "Counseling",
+        "containsSeries" : true
+      }
+     
+     
+    ],
+    "series" : [
+      {
+        "id" : 0,
+        "title" : "1st 30 Day Program",
+        "categoryId" : 2
+      },
+      {
+        "id" : 1,
+        "title" : "2nd 30 Day Program",
+        "categoryId" : 2
+      },
+      {
+        "id" : 2,
+        "title" : "3rd 30 Day Program",
+        "categoryId" : 2
+      },
+      {
+        "id" : 3,
+        "title" : "Counseling Series 1",
+        "categoryId" : 3
+      },
+      {
+        "id" : 4,
+        "title" : "Counseling Series 2",
+        "categoryId" : 3
+      }
+    ]
 }

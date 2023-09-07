@@ -1,33 +1,57 @@
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link, Outlet } from "react-router-dom";
-import { Container } from "react-bootstrap";
+import { Container, ListGroupItem } from "react-bootstrap";
+import { useContext, useEffect, useState } from "react";
+import { CategoryContext } from "./Contexts/CategoryContext";
+
 
 function Home() {
+
+  let { getCategories, categories, setCategories } = useContext(CategoryContext)
+  
+  useEffect(() => {
+    async function fetch() {
+      await getCategories()
+      .then((categories) => setCategories(categories))
+    }
+    fetch()
+  },[]);
+
+  function buildNavBar() {
+    
+    if (categories === null) return
+    return categories.map((category) => {
+     if (category.containsSeries) {
+       let url = "series/list/"+category.id;
+        return (
+          <Link key={category.id} to={url} className="nav-link">
+          {category.title}
+        </Link>
+        )  
+     }
+     else {
+      let url = "videos/list/" + category.id;
+      return (
+        <Link key={category.id} to={url} className="nav-link">
+        {category.title}
+      </Link>  
+      )
+     }
+      
+    })
+}
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
           <Navbar.Brand>BCOMSermon</Navbar.Brand>
           <Nav className="me-auto">
-            <Link to="/" className="nav-link">
-              Introduction
-            </Link>
-            <Link to="/current" className="nav-link">
-              Current65 Day
-            </Link>
-            <Link to="/makeup" className="nav-link">
-              Makeup
-            </Link>
-            <Link to="/extensions" className="nav-link">
-              Extensions
-            </Link>
-            <Link to="/counseling" className="nav-link">
-              Counseling
-            </Link>
-            <Link to="/pastor" className="nav-link">
-              Pastor Ritchie
-            </Link>
+            <CategoryContext.Consumer>
+              {() => {
+                return buildNavBar();
+              }}
+            </CategoryContext.Consumer>
           </Nav>
         </Container>
       </Navbar>

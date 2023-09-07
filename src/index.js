@@ -4,11 +4,20 @@ import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import reportWebVitals from './reportWebVitals';
+import { VideoProvider } from './Contexts/VideoContext';
+import { CategoryProvider } from './Contexts/CategoryContext';
+import { SeriesProvider } from './Contexts/SeriesContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <VideoProvider>
+      <SeriesProvider>
+      <CategoryProvider>
+        <App />
+      </CategoryProvider>
+      </SeriesProvider>
+    </VideoProvider>
   </React.StrictMode>
 );
 
