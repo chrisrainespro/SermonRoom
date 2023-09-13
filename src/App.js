@@ -5,6 +5,8 @@ import VideoList from "./VideoList";
 import Video from "./Video";
 import Admin from "./admin";
 import SeriesList from "./SeriesList";
+import AdminVideoList from "./AdminVideoList";
+import AdminSeriesList from "./AdminSeriesList";
 
 
 function App() {
@@ -16,8 +18,10 @@ function App() {
         <Route path="videos/list/:categoryId" element={<VideoList />} />
         <Route path="series/list/:seriesId" element={<SeriesList /> } />
       </Route>
-      <Route path='/admin' element={<Admin/>}>
-        
+      <Route path='/admin' element={<Home/>}>
+      <Route index element={<p>Please Select a Category from the Menu Above</p>}  />
+        <Route path="videos/list/:categoryId" element={<AdminVideoList />} />
+        <Route path="series/list/:seriesId" element={<AdminSeriesList /> } />
       </Route>
     </Routes>
     </BrowserRouter>
