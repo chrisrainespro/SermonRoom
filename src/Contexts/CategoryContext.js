@@ -23,12 +23,12 @@ export const CategoryProvider = (props) => {
     });
   };
 
-  //   function getCategories() {
-  //     console.log("get categories has run");
-  //     return axios
-  //       .get(apiUrl)
-  //       .then((response) => new Promise((resolve) => resolve(response.data)));
-  //   }
+    function getCategories() {
+      console.log("get categories has run");
+      return axios
+        .get(apiUrl)
+        .then((response) => new Promise((resolve) => resolve(response.data)));
+    }
   
   function getCategoryNameByIndex(index) {
     if (categories && categories[index]) {
@@ -48,10 +48,11 @@ export const CategoryProvider = (props) => {
     <CategoryContext.Provider
       value={{
         categories,
+        setCategories,
         refreshCategories,
         getCategoryById,
         getCategoryNameByIndex,
-        // getCategories,
+        getCategories,
       }}
     >
       {props.children}
