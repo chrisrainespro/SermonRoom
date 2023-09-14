@@ -7,16 +7,17 @@ import { VideoContext } from "./Contexts/VideoContext";
 export default function Admin(props) {
   const {
     categories,
-    setCategories,
     refreshCategories,
     getCategoryNameByIndex,
   } = useContext(CategoryContext);
-  const { series, setSeries, refreshSeries, getSerieNameByIndex } =
+  const { series, refreshSeries, getSerieNameByIndex } =
     useContext(SeriesContext);
-  const { videos, setVideos, refreshVideos } = useContext(VideoContext);
+  const { videos,  refreshVideos } = useContext(VideoContext);
   // Use useEffect to refresh categories when the component mounts
   useEffect(() => {
     refreshCategories();
+    refreshSeries();
+    refreshVideos();
   }, []);
 
   //   let { id, title, categoryId } = series;
