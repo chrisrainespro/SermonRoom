@@ -17,7 +17,7 @@ export default function Admin(props) {
   // Use useEffect to refresh categories when the component mounts
   useEffect(() => {
     refreshCategories();
-  }, [refreshCategories, refreshSeries, refreshVideos]);
+  }, []);
 
   //   let { id, title, categoryId } = series;
   function categoryTable() {
