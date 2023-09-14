@@ -9,6 +9,17 @@ const apiUrl = "http://localhost:3001/videos/";
 
 const [videos, setVideos] = useState([])
 
+useEffect(() => {
+    async function getVideo(){
+        await refreshVideos();
+    }
+    getVideo();
+}, []);
+
+const refreshVideos = () => {
+    return axios.get(apiUrl).then(response =>
+    setVideos(response.data))
+}
 
 function getVideosByCategory(categoryId) {
    return axios.get(apiUrl+`?category=${categoryId}`).then(response =>
@@ -22,7 +33,8 @@ return (
         value={{
             getVideosByCategory,
             videos,
-            setVideos
+            setVideos,
+            refreshVideos
         }}
         >
         {props.children}    
