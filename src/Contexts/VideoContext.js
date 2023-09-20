@@ -26,6 +26,26 @@ function getVideosByCategory(categoryId) {
     new Promise((resolve) => resolve(response.data))
     )}
 
+    function addVideos(video) {
+      return axios
+        .post("http://localhost:3001/videos", video)
+        .then((response) => {
+          return new Promise((resolve) => resolve(response.data));
+        });
+    }
+  
+    function updateVideos(video) {
+      return axios
+        .post(`http://localhost:3001/videos/${video.id}`, video)
+        .then((response) => {
+          return new Promise((resolve) => resolve(response.data));
+        });
+    }
+  
+    function deleteVideos(id) {
+      axios.delete(`http://localhost:3000/videos/${id}`);
+    }
+
 
 
 return (
@@ -34,7 +54,10 @@ return (
             getVideosByCategory,
             videos,
             setVideos,
-            refreshVideos
+            refreshVideos,
+            addVideos,
+            updateVideos,
+            deleteVideos,
         }}
         >
         {props.children}    

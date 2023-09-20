@@ -38,6 +38,27 @@ export const SeriesProvider = (props) => {
     return "N/A"; // Handle the case where the category doesn't exist
   }
 
+  function addSeries(serie) {
+    return axios
+      .post("http://localhost:3001/series", serie)
+      .then((response) => {
+        return new Promise((resolve) => resolve(response.data));
+      });
+  }
+  
+
+  function updateSeries(serie) {
+    return axios
+      .post(`http://localhost:3001/series/${serie.id}`, serie)
+      .then((response) => {
+        return new Promise((resolve) => resolve(response.data));
+      });
+  }
+
+  function deleteSeries(id) {
+    axios.delete(`http://localhost:3001/series/${id}`);
+  }
+
 
   return (
     <SeriesContext.Provider
@@ -46,7 +67,10 @@ export const SeriesProvider = (props) => {
         series,
         setSeries,
         refreshSeries,
-        getSerieNameByIndex
+        getSerieNameByIndex,
+        addSeries,
+        updateSeries,
+        deleteSeries,
       }}
     >
       {props.children}

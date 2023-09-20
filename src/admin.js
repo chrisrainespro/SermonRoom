@@ -3,6 +3,7 @@ import { Button, Table } from "react-bootstrap";
 import { CategoryContext } from "./Contexts/CategoryContext";
 import { SeriesContext } from "./Contexts/SeriesContext";
 import { VideoContext } from "./Contexts/VideoContext";
+import { Link } from "react-router-dom";
 
 export default function Admin(props) {
   const {
@@ -88,7 +89,7 @@ export default function Admin(props) {
         </thead>
         <tbody>{categoryTable()}</tbody>
       </Table>
-      <Button>Add Category</Button>
+      <Link to={'/admin/addCat'} className="btn btn-primary m-1">Add Category</Link>
       <h1>Series</h1>
       <Table className="striped bordered hover size">
         <tr>
@@ -99,7 +100,7 @@ export default function Admin(props) {
         </tr>
         <tbody>{seriesTable()}</tbody>
       </Table>
-      <Button>Add Series</Button>
+      <Link to={'/admin/addSer'} className="btn btn-primary m-1">Add Series</Link>
       <h1>Videos</h1>
       <Table className="striped bordered hover size">
         <tr>
@@ -112,7 +113,7 @@ export default function Admin(props) {
         </tr>
         <tbody>{videosTable()}</tbody>
       </Table>
-      <Button>Add Video</Button>
+      <Link to={'/admin/addVid'} className="btn btn-primary m-1">Add Video</Link>
     </>
   );
 }
