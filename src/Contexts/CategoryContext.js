@@ -44,6 +44,28 @@ export const CategoryProvider = (props) => {
       .then((response) => new Promise((resolve) => resolve(response.data)));
   }
 
+  function addCategories(category) {
+    return axios
+      .post("http://localhost:3001/categories", category)
+      .then((response) => {
+        return new Promise((resolve) => resolve(response.data));
+      });
+  }
+
+  function updateCategories(category) {
+    return axios
+      .put(`http://localhost:3001/categories/${category.id}`, category)
+      .then((response) => {
+        return new Promise((resolve) => resolve(response.data));
+      });
+  }
+
+  function deleteCategories(id) {
+    axios.delete(`http://localhost:3001/categories/${id}`);
+  }
+
+
+
   return (
     <CategoryContext.Provider
       value={{
@@ -53,6 +75,9 @@ export const CategoryProvider = (props) => {
         getCategoryById,
         getCategoryNameByIndex,
         getCategories,
+        addCategories,
+        updateCategories,
+        deleteCategories,
       }}
     >
       {props.children}
