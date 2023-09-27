@@ -7,6 +7,9 @@ import SeriesList from "./SeriesList";
 import AddCategory from "./AddCategory";
 import AddVideo from "./AddVideos";
 import AddSeries from "./AddSeries";
+import EditCategory from "./EditCategory";
+import EditVideo from "./EditVideo";
+import EditSeries from "./EditSerie";
 
 
 
@@ -23,6 +26,9 @@ function App() {
       <Route path='/admin/addCat' element={<AddCategory/>} />
       <Route path='/admin/addSer' element={<AddSeries/>} />
       <Route path='/admin/addVid' element={<AddVideo/>} />
+      <Route path='/admin/editCat/:categoryId' element={<EditCategory/>}/>
+      <Route path='/admin/editSer/:seriesId' element={<EditSeries/>}/>
+      <Route path="/admin/editVid/:videoId" element={<EditVideo/>}/>
     </Routes>
     </BrowserRouter>
   );

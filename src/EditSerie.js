@@ -7,15 +7,15 @@ import { useContext, useState, useEffect } from "react";
 import styles from "./add.module.css";
 import { CategoryContext } from "./Contexts/CategoryContext";
 
-function AddSeries() {
+function EditSeries() {
   let params = useParams();
   let [series, setSerie] = useState({
-    id: params.seriesId,
+    id: Number(params.seriesId),
     title: "",
     categoryId: "",
   });
   const [selectedCategory, setSelectedCategory] = useState("");
-  let { getSeriesByCategory, addSeries} =
+  let { getSeriesById, updateSeries} =
     useContext(SeriesContext);
   let { getCategoryNameByIndex, categories } =
     useContext(CategoryContext);
@@ -25,7 +25,7 @@ function AddSeries() {
   useEffect(() => {
     if (id === undefined) return;
     async function fetch() {
-      await getSeriesByCategory(categoryId).then((serie) => setSerie(serie));
+      await getSeriesById(id).then((series) => setSerie(series));
     }
     fetch();
   }, [id]);
@@ -36,15 +36,18 @@ function AddSeries() {
     });
   }
 
-  const newSeries = {
-    title: series.title,
-    categoryId: selectedCategory,
-  };
+  function handleCategoryChange(categoryId){
+    setSerie((preValue) => {
+      return {...preValue, 
+    
+      };
+    });
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
-    addSeries(newSeries)
-      .then(navigate(`/admin`))
+    updateSeries(series)
+      .then(() => navigate(`/admin`))
   }
   return (
     <div className={styles.form}>
@@ -71,8 +74,10 @@ function AddSeries() {
                 .filter((category) => category.containsSeries)
                 .map((category) => (
                   <Dropdown.Item
+                    name="categoryId"
                     key={category.id}
                     onClick={() => setSelectedCategory(category.id)}
+                    onChange={handleCategoryChange(category.id)}
                   >
                     {category.title}
                   </Dropdown.Item>
@@ -89,4 +94,4 @@ function AddSeries() {
   );
 }
 
-export default AddSeries;
+export default EditSeries;

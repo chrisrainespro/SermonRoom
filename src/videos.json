@@ -193,11 +193,11 @@
       "password": "0000"
     },
     {
-      "category": "Test",
-      "series": "Test",
-      "title": "Test",
-      "path": "https://Test.com",
-      "password": "password",
+      "category": 0,
+      "series": "",
+      "title": "New Video",
+      "path": "/videos/video.mp4",
+      "password": "0000",
       "id": 24
     }
   ],
@@ -223,14 +223,9 @@
       "containsSeries": true
     },
     {
-      "title": "Addiction",
-      "containsSeries": "Yes",
+      "title": "New Category",
+      "containsSeries": false,
       "id": 4
-    },
-    {
-      "title": "Addiction",
-      "containsSeries": "Yes",
-      "id": 5
     }
   ],
   "series": [
@@ -260,8 +255,8 @@
       "categoryId": 3
     },
     {
-      "title": "Test",
-      "categoryId": "1",
+      "title": "New Series",
+      "categoryId": 2,
       "id": 5
     }
   ]

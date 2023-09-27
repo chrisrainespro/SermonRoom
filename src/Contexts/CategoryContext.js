@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 
 export const CategoryContext = createContext();
@@ -8,7 +8,6 @@ export const CategoryProvider = (props) => {
 
   const [categories, setCategories] = useState([]);
 
-  // useEffect to fetch categories initially
   useEffect(() => {
     async function getCategory() {
       await refreshCategories();
@@ -16,7 +15,7 @@ export const CategoryProvider = (props) => {
     getCategory();
   }, []);
 
-  // Function to refresh categories
+ 
   const refreshCategories = () => {
     return axios.get(apiUrl).then((response) => {
       setCategories(response.data);
@@ -34,7 +33,7 @@ export const CategoryProvider = (props) => {
     if (categories && categories[index]) {
       return categories[index].title;
     }
-    return "N/A"; // Handle the case where the category doesn't exist
+    return "N/A"; 
   }
 
   function getCategoryById(categoryId) {
@@ -60,11 +59,15 @@ export const CategoryProvider = (props) => {
       });
   }
 
-  function deleteCategories(id) {
-    axios.delete(`http://localhost:3001/categories/${id}`);
-  }
-
-
+  async function deleteCategories(id) {
+    try {
+      await axios.delete(`http://localhost:3001/categories/${id}`);
+      await refreshCategories();
+    } catch (error) {
+      console.error("Error deleting Category:", error);
+      throw error;
+    }
+  }  
 
   return (
     <CategoryContext.Provider
