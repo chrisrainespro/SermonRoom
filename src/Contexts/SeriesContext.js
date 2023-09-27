@@ -1,12 +1,13 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { VideoContext } from "./VideoContext";
 
 export const SeriesContext = createContext();
 
 export const SeriesProvider = (props) => {
   const apiUrl = "http://localhost:3001/series/";
 
-  const [series, setSeries] = useState([]);
+  const [serie, setSerie] = useState([]);
   useEffect(() => {
     async function getSerie() {
       await refreshSeries();
@@ -16,14 +17,14 @@ export const SeriesProvider = (props) => {
 
   function refreshSeries() {
     return axios.get(apiUrl).then((response) => {
-      setSeries(response.data);
+      setSerie(response.data);
     });
   }
-//   function getSeriesById(id) {
-//     return axios
-//     .get(apiUrl + `${id}`)
-//     .then((response) => new Promise((resolve) => resolve(response.data)));
-//   }
+  function getSeriesById(id) {
+    return axios
+    .get(apiUrl + id)
+    .then((response) => new Promise((resolve) => resolve(response.data)));
+  }
 
   function getSeriesByCategory(categoryId) {
     return axios
@@ -32,40 +33,48 @@ export const SeriesProvider = (props) => {
   }
 
   function getSerieNameByIndex(index) {
-    if (series && series[index]) {
-      return series[index].title;
+    if (serie && serie[index]) {
+      return serie[index].title;
     }
-    return "N/A"; // Handle the case where the category doesn't exist
+    return "N/A"; 
   }
 
-  function addSeries(serie) {
+  function addSeries(series) {
     return axios
-      .post("http://localhost:3001/series", serie)
+      .post("http://localhost:3001/series", series)
       .then((response) => {
         return new Promise((resolve) => resolve(response.data));
       });
   }
   
-
-  function updateSeries(serie) {
+  function updateSeries(series) {
+    console.log(series);
     return axios
-      .post(`http://localhost:3001/series/${serie.id}`, serie)
+      .put(`http://localhost:3001/series/${series.id}`, series)
       .then((response) => {
         return new Promise((resolve) => resolve(response.data));
       });
   }
 
-  function deleteSeries(id) {
-    axios.delete(`http://localhost:3001/series/${id}`);
+  async function deleteSeries(id) {
+    try {
+      await axios.delete(`http://localhost:3001/series/${id}`);
+      await refreshSeries();
+    } catch (error) {
+      console.error("Error deleting Serie:", error);
+      throw error;
+    }
   }
+
 
 
   return (
     <SeriesContext.Provider
       value={{
         getSeriesByCategory,
-        series,
-        setSeries,
+        getSeriesById,
+        serie,
+        setSerie,
         refreshSeries,
         getSerieNameByIndex,
         addSeries,

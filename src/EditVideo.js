@@ -8,7 +8,7 @@ import styles from "./add.module.css";
 import { CategoryContext } from "./Contexts/CategoryContext";
 import { SeriesContext } from "./Contexts/SeriesContext";
 
-function AddVideo() {
+function EditVideo() {
   let params = useParams();
   let [video, setVideo] = useState({
     id: params.videoId,
@@ -18,7 +18,7 @@ function AddVideo() {
     password: "",
   });
 
-  let { getVideo, addVideos } = useContext(VideoContext);
+  let { getVideosById, updateVideos } = useContext(VideoContext);
   let { categories, getCategoryNameByIndex } = useContext(CategoryContext);
   let { serie, getSerieNameByIndex } = useContext(SeriesContext);
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -29,7 +29,7 @@ function AddVideo() {
   useEffect(() => {
     if (id === undefined) return;
     async function fetch() {
-      await getVideo(id).then((video) => setVideo(video));
+      await getVideosById(id).then((video) => setVideo(video));
     }
     fetch();
   }, [id]);
@@ -92,7 +92,7 @@ function AddVideo() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    addVideos(newVideo).then(() => navigate("/admin"));
+    updateVideos(newVideo).then(() => navigate("/admin"));
   }
   return (
     <div className={styles.form}>
@@ -143,4 +143,4 @@ function AddVideo() {
   );
 }
 
-export default AddVideo;
+export default EditVideo;

@@ -7,15 +7,15 @@ import { useContext, useState, useEffect } from "react";
 import styles from "./add.module.css";
 import { CategoryContext } from "./Contexts/CategoryContext";
 
-function AddSeries() {
+function EditSeries() {
   let params = useParams();
   let [series, setSerie] = useState({
-    id: params.seriesId,
+    id: Number(params.seriesId),
     title: "",
-    categoryId: "",
+    categoryId: 0,
   });
   const [selectedCategory, setSelectedCategory] = useState("");
-  let { getSeriesByCategory, addSeries} =
+  let { getSeriesById, updateSeries} =
     useContext(SeriesContext);
   let { getCategoryNameByIndex, categories } =
     useContext(CategoryContext);
@@ -25,26 +25,33 @@ function AddSeries() {
   useEffect(() => {
     if (id === undefined) return;
     async function fetch() {
-      await getSeriesByCategory(categoryId).then((serie) => setSerie(serie));
+      await getSeriesById(id).then((series) => setSerie(series));
     }
     fetch();
   }, [id]);
 
   function handleChange(event) {
+    console.log(event.target.name + event.target.value);
     setSerie((preValue) => {
       return { ...preValue, [event.target.name]: event.target.value };
     });
   }
 
-  const newSeries = {
-    title: series.title,
-    categoryId: selectedCategory,
-  };
+  function handleCategoryChange(id) {
+    console.log("id is: " + id);
+    setSelectedCategory((preValue) => {
+      return {...preValue, preValue: getCategoryNameByIndex(id)}
+    })
+    console.log("selected category is: " + selectedCategory)
+    setSerie((preValue) => {
+      return { ...preValue, categoryId : id};
+    });
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
-    addSeries(newSeries)
-      .then(navigate(`/admin`))
+    updateSeries(series)
+      .then(() => navigate(`/admin`))
   }
   return (
     <div className={styles.form}>
@@ -63,7 +70,7 @@ function AddSeries() {
           <Dropdown>
             <Dropdown.Toggle variant="outline-primary" id="dropdown-basic">
               {selectedCategory
-                ? getCategoryNameByIndex(selectedCategory)
+                ? getCategoryNameByIndex(series.categoryId)
                 : "Select Category"}
             </Dropdown.Toggle>
             <Dropdown.Menu>
@@ -71,8 +78,11 @@ function AddSeries() {
                 .filter((category) => category.containsSeries)
                 .map((category) => (
                   <Dropdown.Item
-                    key={category.id}
-                    onClick={() => setSelectedCategory(category.id)}
+                    name="categoryId"
+                    value={category.categoryId}
+                    key={category.categoryId}
+                    onClick={() => handleCategoryChange(category.id)}
+                    onChange={handleCategoryChange}
                   >
                     {category.title}
                   </Dropdown.Item>
@@ -89,4 +99,4 @@ function AddSeries() {
   );
 }
 
-export default AddSeries;
+export default EditSeries;
