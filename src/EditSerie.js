@@ -12,7 +12,7 @@ function EditSeries() {
   let [series, setSerie] = useState({
     id: Number(params.seriesId),
     title: "",
-    categoryId: "",
+    categoryId: 0,
   });
   const [selectedCategory, setSelectedCategory] = useState("");
   let { getSeriesById, updateSeries} =
@@ -31,16 +31,20 @@ function EditSeries() {
   }, [id]);
 
   function handleChange(event) {
+    console.log(event.target.name + event.target.value);
     setSerie((preValue) => {
       return { ...preValue, [event.target.name]: event.target.value };
     });
   }
 
-  function handleCategoryChange(categoryId){
+  function handleCategoryChange(id) {
+    console.log("id is: " + id);
+    setSelectedCategory((preValue) => {
+      return {...preValue, preValue: getCategoryNameByIndex(id)}
+    })
+    console.log("selected category is: " + selectedCategory)
     setSerie((preValue) => {
-      return {...preValue, 
-    
-      };
+      return { ...preValue, categoryId : id};
     });
   }
 
@@ -66,7 +70,7 @@ function EditSeries() {
           <Dropdown>
             <Dropdown.Toggle variant="outline-primary" id="dropdown-basic">
               {selectedCategory
-                ? getCategoryNameByIndex(selectedCategory)
+                ? getCategoryNameByIndex(series.categoryId)
                 : "Select Category"}
             </Dropdown.Toggle>
             <Dropdown.Menu>
@@ -75,9 +79,10 @@ function EditSeries() {
                 .map((category) => (
                   <Dropdown.Item
                     name="categoryId"
-                    key={category.id}
-                    onClick={() => setSelectedCategory(category.id)}
-                    onChange={handleCategoryChange(category.id)}
+                    value={category.categoryId}
+                    key={category.categoryId}
+                    onClick={() => handleCategoryChange(category.id)}
+                    onChange={handleCategoryChange}
                   >
                     {category.title}
                   </Dropdown.Item>
