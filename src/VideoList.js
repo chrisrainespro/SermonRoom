@@ -6,20 +6,18 @@ import { ListGroup } from "react-bootstrap";
 export default function VideoList(props) {
   let params = useParams();
   let { getVideosByCategory, videos, setVideos } = useContext(VideoContext);
-  
 
   useEffect(() => {
-        async function fetch() {
-        await getVideosByCategory(Number(params.categoryId))
-        .then((videos) => setVideos(videos))
+    async function fetch() {
+      await getVideosByCategory(Number(params.categoryId)).then((videos) =>
+        setVideos(videos)
+      );
     }
-    fetch()
-  },[params.categoryId]);
-
- 
+    fetch();
+  }, [params.categoryId]);
 
   function buildVideoList() {
-    if (videos === null || videos === undefined) return <p>No Videos Found</p>;
+    if (typeof videos.category === isNaN) return <p>No Videos Found</p>;
     else {
       return videos.map((video) => {
         return (
@@ -37,9 +35,7 @@ export default function VideoList(props) {
     <>
       <h1>Videos</h1>
       <ol type="1">
-        <VideoContext.Consumer>
-          {() => buildVideoList()}
-        </VideoContext.Consumer>
+        <VideoContext.Consumer>{() => buildVideoList()}</VideoContext.Consumer>
       </ol>
     </>
   );

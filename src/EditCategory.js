@@ -6,7 +6,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import styles from "./add.module.css";
 
-function AddCategory() {
+function EditCategory() {
   let params = useParams();
   let [category, setCategory] = useState({
     id: params.categoryId,
@@ -14,7 +14,7 @@ function AddCategory() {
     containsSeries: "",
   });
 
-  let { getCategoryById, addCategories } =
+  let { getCategoryById, updateCategories } =
     useContext(CategoryContext);
   let navigate = useNavigate();
   let { id, title, containsSeries } = category;
@@ -39,7 +39,7 @@ function AddCategory() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    addCategories(category).then(navigate("/admin"));
+    updateCategories(category).then(() => navigate('/admin/'));
   }
   return (
     <div className={styles.form}>
@@ -82,4 +82,4 @@ function AddCategory() {
   );
 }
 
-export default AddCategory;
+export default EditCategory;

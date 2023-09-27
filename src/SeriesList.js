@@ -5,13 +5,13 @@ import { ListGroup } from "react-bootstrap";
 
 export default function SeriesList(props) {
   let params = useParams();
-  let { getSeriesByCategory, series, setSeries } = useContext(SeriesContext);
+  let { getSeriesByCategory, serie, setSerie } = useContext(SeriesContext);
   
 
   useEffect(() => {
         async function fetch() {
         await getSeriesByCategory(Number(params.seriesId))
-        .then((series) => setSeries(series))
+        .then((serie) => setSerie(serie))
     }
     fetch()
   },[params.seriesId]);
@@ -19,9 +19,9 @@ export default function SeriesList(props) {
  
 
   function buildSeriesList() {
-    if (series === null || series === undefined) return <p>No Series Found</p>;
+    if (serie === null || serie === undefined) return <p>No Series Found</p>;
     else {
-      return series.map((series) => {
+      return serie.map((series) => {
         return (
           <ListGroup.Item key={series.id}>
             <Link to={series.path} className="nav-link">
@@ -38,7 +38,7 @@ export default function SeriesList(props) {
       <h1>Series</h1>
       <ol type="1">
         <SeriesContext.Consumer>
-          {() => buildSeriesList(series)}
+          {() => buildSeriesList(serie)}
         </SeriesContext.Consumer>
       </ol>
     </>

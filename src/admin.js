@@ -1,19 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { Button, Table } from "react-bootstrap";
 import { CategoryContext } from "./Contexts/CategoryContext";
 import { SeriesContext } from "./Contexts/SeriesContext";
 import { VideoContext } from "./Contexts/VideoContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Admin(props) {
   const {
     categories,
     refreshCategories,
     getCategoryNameByIndex,
+    deleteCategories,
   } = useContext(CategoryContext);
-  const { series, refreshSeries, getSerieNameByIndex } =
+  const { serie, refreshSeries, getSerieNameByIndex, deleteSeries } =
     useContext(SeriesContext);
-  const { videos,  refreshVideos } = useContext(VideoContext);
+  const { videos, refreshVideos, deleteVideos } = useContext(VideoContext);
+  const navigate = useNavigate();
   // Use useEffect to refresh categories when the component mounts
   useEffect(() => {
     refreshCategories();
@@ -21,7 +23,18 @@ export default function Admin(props) {
     refreshVideos();
   }, []);
 
-  //   let { id, title, categoryId } = series;
+  function handleDeleteCategory(id) {
+    deleteCategories(id);
+    navigate("/admin");
+  }
+  function handleDeleteVideo(id) {
+    deleteVideos(id);
+    navigate("/admin");
+  }
+  function handleDeleteSerie(id) {
+    deleteSeries(id);
+    navigate("/admin");
+  }
   function categoryTable() {
     return categories.map((category) => {
       return (
@@ -29,10 +42,20 @@ export default function Admin(props) {
           <td>{category.title}</td>
           <td>{category.containsSeries ? "Yes" : "No"}</td>
           <td>
-            <Button variant="outline-secondary">Edit</Button>
+            <Link
+              to={`/admin/editCat/${category.id}`}
+              className="btn btn-outline-secondary m-1"
+            >
+              Edit
+            </Link>
           </td>
           <td>
-            <Button variant="outline-danger">Delete</Button>
+            <Button
+              variant="outline-danger"
+              onClick={handleDeleteCategory.bind(this, category.id)}
+            >
+              Delete
+            </Button>
           </td>
         </tr>
       );
@@ -40,16 +63,21 @@ export default function Admin(props) {
   }
 
   function seriesTable() {
-    return series.map((serie) => {
+    return serie.map((series) => {
       return (
-        <tr key={serie.id}>
-          <td>{serie.title}</td>
-          <td>{getCategoryNameByIndex(serie.categoryId)}</td>
+        <tr key={series.id}>
+          <td>{series.title}</td>
+          <td>{getCategoryNameByIndex(series.categoryId)}</td>
           <td>
-            <Button variant="outline-secondary">Edit</Button>
+            <Link to={`/admin/editSer/${series.id}`} className="btn btn-outline-secondary m-1">Edit</Link>
           </td>
           <td>
-            <Button variant="outline-danger">Delete</Button>
+            <Button
+              onClick={handleDeleteSerie.bind(this, series.id)}
+              variant="outline-danger"
+            >
+              Delete
+            </Button>
           </td>
         </tr>
       );
@@ -65,10 +93,20 @@ export default function Admin(props) {
           <td>{video.title}</td>
           <td>{video.password}</td>
           <td>
-            <Button variant="outline-secondary">Edit</Button>
+            <Link
+              to={`/admin/editVid/${video.id}`}
+              className="btn btn-outline-secondary m-1"
+            >
+              Edit
+            </Link>
           </td>
           <td>
-            <Button variant="outline-danger">Delete</Button>
+            <Button
+              onClick={handleDeleteVideo.bind(this, video.id)}
+              variant="outline-danger"
+            >
+              Delete
+            </Button>
           </td>
         </tr>
       );
@@ -89,7 +127,9 @@ export default function Admin(props) {
         </thead>
         <tbody>{categoryTable()}</tbody>
       </Table>
-      <Link to={'/admin/addCat'} className="btn btn-primary m-1">Add Category</Link>
+      <Link to={"/admin/addCat"} className="btn btn-primary m-1">
+        Add Category
+      </Link>
       <h1>Series</h1>
       <Table className="striped bordered hover size">
         <tr>
@@ -100,7 +140,9 @@ export default function Admin(props) {
         </tr>
         <tbody>{seriesTable()}</tbody>
       </Table>
-      <Link to={'/admin/addSer'} className="btn btn-primary m-1">Add Series</Link>
+      <Link to={"/admin/addSer"} className="btn btn-primary m-1">
+        Add Series
+      </Link>
       <h1>Videos</h1>
       <Table className="striped bordered hover size">
         <tr>
@@ -113,7 +155,9 @@ export default function Admin(props) {
         </tr>
         <tbody>{videosTable()}</tbody>
       </Table>
-      <Link to={'/admin/addVid'} className="btn btn-primary m-1">Add Video</Link>
+      <Link to={"/admin/addVid"} className="btn btn-primary m-1">
+        Add Video
+      </Link>
     </>
   );
 }
