@@ -24,16 +24,64 @@ export default function Admin(props) {
   }, []);
 
   function handleDeleteCategory(id) {
-    deleteCategories(id);
-    navigate("/admin");
+
+    let running = true;
+
+    while (running)
+    {
+      var confirmPrompt = window.confirm("Are you sure you want to delete this item?");
+      if (confirmPrompt) {
+        deleteCategories(id);
+        running = false;
+        navigate("/admin");
+        
+      }
+
+      else {
+        running = false;
+      }
+
+    }
+
   }
   function handleDeleteVideo(id) {
-    deleteVideos(id);
-    navigate("/admin");
+    let running = true;
+
+    while (running)
+    {
+      var confirmPrompt = window.confirm("Are you sure you want to delete this item?");
+      if (confirmPrompt) {
+        deleteVideos(id);
+        running = false;
+        navigate("/admin");
+        
+      }
+
+      else {
+        running = false;
+      }
+
+    }
   }
   function handleDeleteSerie(id) {
-    deleteSeries(id);
-    navigate("/admin");
+    let running = true;
+
+    while (running)
+    {
+      var confirmPrompt = window.confirm("Are you sure you want to delete this item?");
+      if (confirmPrompt) {
+        deleteSeries(id);
+        running = false;
+        navigate("/admin");
+        
+      }
+
+      else {
+        running = false;
+      }
+
+    }
+
   }
   function categoryTable() {
     return categories.map((category) => {
