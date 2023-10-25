@@ -38,7 +38,6 @@ function EditSeries() {
   }
 
   function handleCategoryChange(id) {
-    console.log("id is: " + id);
     setSelectedCategory((preValue) => {
       return {...preValue, preValue: getCategoryNameByIndex(id)}
     })

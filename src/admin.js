@@ -25,6 +25,7 @@ export default function Admin(props) {
   }, []);
 
   function handleDeleteCategory(id) {
+
     const confirmed = window.confirm(
       "Are you sure you want to delete this category?"
     );
@@ -33,9 +34,29 @@ export default function Admin(props) {
       deleteCategories(id);
       navigate("/admin");
     }
+
+    let running = true;
+
+    while (running)
+    {
+      var confirmPrompt = window.confirm("Are you sure you want to delete this item?");
+      if (confirmPrompt) {
+        deleteCategories(id);
+        running = false;
+        navigate("/admin");
+        
+      }
+
+      else {
+        running = false;
+      }
+
+    }
+
   }
 
   function handleDeleteVideo(id) {
+
     const approved = window.confirm(
       "Are you sure you want to delete this Video?"
     );
@@ -50,6 +71,45 @@ export default function Admin(props) {
       deleteSeries(id);
       navigate("/admin");
     }
+
+    let running = true;
+
+    while (running)
+    {
+      var confirmPrompt = window.confirm("Are you sure you want to delete this item?");
+      if (confirmPrompt) {
+        deleteVideos(id);
+        running = false;
+        navigate("/admin");
+        
+      }
+
+      else {
+        running = false;
+      }
+
+    }
+  }
+  function handleDeleteSerie(id) {
+    let running = true;
+
+    while (running)
+    {
+      var confirmPrompt = window.confirm("Are you sure you want to delete this item?");
+      if (confirmPrompt) {
+        deleteSeries(id);
+        running = false;
+        navigate("/admin");
+        
+      }
+
+      else {
+        running = false;
+      }
+
+    }
+
+
   }
   function categoryTable() {
     return categories.map((category) => {
