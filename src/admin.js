@@ -1,9 +1,10 @@
 import React, { useEffect, useContext } from "react";
-import { Button, Table } from "react-bootstrap";
+import { Button, Navbar, Table, Container, Nav } from "react-bootstrap";
 import { CategoryContext } from "./Contexts/CategoryContext";
 import { SeriesContext } from "./Contexts/SeriesContext";
 import { VideoContext } from "./Contexts/VideoContext";
 import { Link, useNavigate } from "react-router-dom";
+import "./Admin.css";
 
 export default function Admin(props) {
   const {
@@ -24,16 +25,31 @@ export default function Admin(props) {
   }, []);
 
   function handleDeleteCategory(id) {
-    deleteCategories(id);
-    navigate("/admin");
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this category?"
+    );
+
+    if (confirmed) {
+      deleteCategories(id);
+      navigate("/admin");
+    }
   }
+
   function handleDeleteVideo(id) {
-    deleteVideos(id);
-    navigate("/admin");
+    const approved = window.confirm(
+      "Are you sure you want to delete this Video?"
+    );
+    if (approved) {
+      deleteVideos(id);
+      navigate("/admin");
+    }
   }
   function handleDeleteSerie(id) {
-    deleteSeries(id);
-    navigate("/admin");
+    const aggreed = window.confirm("Are you sure you want to delete this Serie?");
+    if (aggreed) {
+      deleteSeries(id);
+      navigate("/admin");
+    }
   }
   function categoryTable() {
     return categories.map((category) => {
@@ -69,7 +85,12 @@ export default function Admin(props) {
           <td>{series.title}</td>
           <td>{getCategoryNameByIndex(series.categoryId)}</td>
           <td>
-            <Link to={`/admin/editSer/${series.id}`} className="btn btn-outline-secondary m-1">Edit</Link>
+            <Link
+              to={`/admin/editSer/${series.id}`}
+              className="btn btn-outline-secondary m-1"
+            >
+              Edit
+            </Link>
           </td>
           <td>
             <Button
@@ -115,49 +136,71 @@ export default function Admin(props) {
 
   return (
     <>
-      <h1>Categories</h1>
-      <Table className="striped bordered hover ">
-        <thead>
+      <Navbar className="bg-body-tertiary">
+        <Container>
+          <Navbar.Brand href="#home">
+            <img
+              alt="logo"
+              src="public/bethelLogo.png"
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />{" "}
+            BCOMSermon Admin
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="/">Home</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <div className="tables">
+        <h2>Categories</h2>
+        <Table className="striped bordered hover ">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Contains Series</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>{categoryTable()}</tbody>
+        </Table>
+        <Link to={"/admin/addCat"} className="btn btn-primary m-1">
+          Add Category
+        </Link>
+        <h2>Series</h2>
+        <Table className="striped bordered hover size">
           <tr>
             <th>Title</th>
-            <th>Contains Series</th>
+            <th>Category Name</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
-        </thead>
-        <tbody>{categoryTable()}</tbody>
-      </Table>
-      <Link to={"/admin/addCat"} className="btn btn-primary m-1">
-        Add Category
-      </Link>
-      <h1>Series</h1>
-      <Table className="striped bordered hover size">
-        <tr>
-          <th>Title</th>
-          <th>Category Name</th>
-          <th>Edit</th>
-          <th>Delete</th>
-        </tr>
-        <tbody>{seriesTable()}</tbody>
-      </Table>
-      <Link to={"/admin/addSer"} className="btn btn-primary m-1">
-        Add Series
-      </Link>
-      <h1>Videos</h1>
-      <Table className="striped bordered hover size">
-        <tr>
-          <th>Category Name</th>
-          <th>Series</th>
-          <th>Title</th>
-          <th>Password</th>
-          <th>Edit</th>
-          <th>Delete</th>
-        </tr>
-        <tbody>{videosTable()}</tbody>
-      </Table>
-      <Link to={"/admin/addVid"} className="btn btn-primary m-1">
-        Add Video
-      </Link>
+          <tbody>{seriesTable()}</tbody>
+        </Table>
+        <Link to={"/admin/addSer"} className="btn btn-primary m-1">
+          Add Series
+        </Link>
+        <h2>Videos</h2>
+        <Table className="striped bordered hover size">
+          <tr>
+            <th>Category Name</th>
+            <th>Series</th>
+            <th>Title</th>
+            <th>Password</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          <tbody>{videosTable()}</tbody>
+        </Table>
+        <Link to={"/admin/addVid"} className="btn btn-primary m-1">
+          Add Video
+        </Link>
+      </div>
     </>
   );
 }

@@ -43,6 +43,7 @@ function AddCategory() {
   }
   return (
     <div className={styles.form}>
+    <h2>Add category</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Title</Form.Label>

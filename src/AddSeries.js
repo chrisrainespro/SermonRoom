@@ -48,6 +48,7 @@ function AddSeries() {
   }
   return (
     <div className={styles.form}>
+    <h2>Add Serie</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Title</Form.Label>
