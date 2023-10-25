@@ -141,7 +141,7 @@ export default function Admin(props) {
           <Navbar.Brand href="#home">
             <img
               alt="logo"
-              src="public/bethelLogo.png"
+              src="/bethelLogo.png"
               width="30"
               height="30"
               className="d-inline-block align-top"
