@@ -5,7 +5,7 @@
       "category": 0,
       "series": null,
       "title": "Test Intro Video Title 1",
-      "path": "/public/videos/65day/test.mp4",
+      "path": "./public/videos/test.mp4",
       "password": "0000"
     },
     {

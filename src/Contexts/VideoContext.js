@@ -25,6 +25,13 @@ export const VideoProvider = (props) => {
     .then((response) => new Promise((resolve) => resolve(response.data)));
   }
 
+  //GetCurrentVideo functionality will be updated when backend is created.  All logic will be handled by the backend
+  function getCurrentVideo() {
+    return axios
+    .get(apiUrl+0)
+    .then((response) => new Promise((resolve) => resolve(response.data)));
+  }
+
   function getVideosByCategory(categoryId) {
     return axios
       .get(apiUrl + `?category=${categoryId}`)
@@ -68,6 +75,7 @@ export const VideoProvider = (props) => {
         addVideos,
         updateVideos,
         deleteVideos,
+        getCurrentVideo
       }}
     >
       {props.children}

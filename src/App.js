@@ -10,6 +10,7 @@ import AddSeries from "./AddSeries";
 import EditCategory from "./EditCategory";
 import EditVideo from "./EditVideo";
 import EditSeries from "./EditSerie";
+import Video from "./Video";
 
 
 
@@ -20,6 +21,7 @@ function App() {
        <Route path='/' element={<Home/>} >
         <Route index element={<p>Please Select a Category from the Menu Above</p>}  />
         <Route path="videos/list/:categoryId" element={<VideoList />} />
+        <Route path="videos/current" element={<Video />} />
         <Route path="series/list/:seriesId" element={<SeriesList /> } />
       </Route>
       <Route path='/admin' element={<Admin/>} />
